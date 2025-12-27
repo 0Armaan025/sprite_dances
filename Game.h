@@ -2,7 +2,6 @@
 #include "Enemy.h"
 #include "Gun.h"
 #include <SDL2/SDL.h>
-#include <SDL2/SDL_mixer.h>
 #include <SDL2/SDL_ttf.h>
 #include <string>
 #include <vector>
@@ -30,7 +29,6 @@ public:
   SDL_Texture *scoreTexture = nullptr;
   bool displayShop = false;
   void spawnMoreEnemies();
-  Mix_Music *bgMusic = nullptr;
   TTF_Font * font;
   void initializeFont(SDL_Renderer *renderer);
   // OUR SENKUUU HAS A GUN

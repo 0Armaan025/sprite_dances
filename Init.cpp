@@ -28,7 +28,8 @@ bool initSDL(SDL_Window *&window, SDL_Renderer *&renderer, int width,
   // now time for maha yudh
 
   if (!(IMG_Init(IMG_INIT_PNG) & IMG_INIT_PNG)) {
-    cout << "image error: " << IMG_GetError() << endl;
+    printf("SDL_image could not initialize! SDL_image Error: %s\n",
+           IMG_GetError());
     return false;
   }
 

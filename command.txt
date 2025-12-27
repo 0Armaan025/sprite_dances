@@ -1,0 +1,8 @@
+g++ main.cpp Enemy.h Enemy.cpp Utils.h Init.h Init.cpp Game.h Game.cpp Gun.h Gun.cpp Projectile.h Projectile.cpp  -o main `pkg-config --cflags --libs sdl2 SDL2_ttf SDL2_gfx SDL2_image SDL2_mixer` && ./main
+
+em++ main.cpp Game.cpp Gun.cpp Enemy.cpp Projectile.cpp Init.cpp \
+    -s USE_SDL=2 -s USE_SDL_IMAGE=2 -s SDL2_IMAGE_FORMATS='["png"]' \
+    -s USE_SDL_TTF=2 \
+    --preload-file assets \
+    --preload-file minecraft-ten.ttf \
+    -o senkuu.html

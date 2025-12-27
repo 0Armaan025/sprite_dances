@@ -3,7 +3,6 @@
 #include "Utils.h"
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
-#include <SDL2/SDL_mixer.h>
 #include <SDL2/SDL_rect.h>
 #include <SDL2/SDL_render.h>
 #include <SDL2/SDL_ttf.h>
@@ -36,28 +35,13 @@ Game::Game(int width, int height, SDL_Renderer *renderer)
 
     enemies.push_back({r, color, dx, dy});
   }
-  playerTexture = IMG_LoadTexture(
-      renderer, "/home/armaan025/Desktop/ARMAAN/Coding/"
-                "projects/sdl2/sprite_dances/assets/senku2.png");
-  shopTexture =
-      IMG_LoadTexture(renderer, "/home/armaan025/Desktop/ARMAAN/Coding/"
-                                "projects/sdl2/sprite_dances/assets/shop.png");
+  playerTexture = IMG_LoadTexture(renderer, "/assets/senku2.png");
+  shopTexture = IMG_LoadTexture(renderer, "/assets/shop.png");
 
   initializeFont(renderer);
   arrowCursor = SDL_CreateSystemCursor(SDL_SYSTEM_CURSOR_ARROW);
   handCursor = SDL_CreateSystemCursor(SDL_SYSTEM_CURSOR_HAND);
-  if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0) {
-    printf("SDL_mixer Error: %s\n", Mix_GetError());
-  }
 
-  bgMusic = Mix_LoadMUS("assets/music.mp3");
-
-  if (!bgMusic) {
-    cout << "error: " << Mix_GetError() << endl;
-  }
-
-  Mix_PlayMusic(bgMusic, -1);
-  Mix_VolumeMusic(64);
 }
 
 Game::~Game() {
@@ -73,8 +57,6 @@ Game::~Game() {
     TTF_CloseFont(font);
   TTF_Quit(); // Clean up the TTF subsystem
 
-  Mix_FreeMusic(bgMusic);
-  Mix_CloseAudio();
   // THIS IS THE MUST BROTHAA
 }
 
