@@ -9,11 +9,12 @@ public:
   void render(SDL_Renderer *renderer);
 
   SDL_Rect getRect() const;
+  float gravity; // pixels per frame^2
+  float drag;
 
 private:
   SDL_Rect rect;
   float posX, posY; // precise position for smooth movement
   float dx, dy;     // velocity components
-  float gravity;    // pixels per frame^2
-  float drag;       // ir resistance
+                    // ir resistance
 };

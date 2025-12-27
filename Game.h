@@ -3,6 +3,7 @@
 #include "Gun.h"
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
+#include <string>
 #include <vector>
 
 enum GameState { PLAYING, GAME_OVER, PAUSED };
@@ -25,7 +26,7 @@ public:
   SDL_Rect player;
   Gun gun;
   SDL_Rect scoreRect;
-  SDL_Texture *scoreTexture;
+  SDL_Texture *scoreTexture = nullptr;
   bool displayShop = false;
   void spawnMoreEnemies();
   TTF_Font *font;
@@ -33,6 +34,13 @@ public:
   // OUR SENKUUU HAS A GUN
   int screenW, screenH;
   int playerScore = 0;
+  int lastScore = -1;
+  bool escHeld = false, xHeld = false;
+
+  std::string toastMessage = "";
+  int toastTimer = 0;
+
+  void showToast(std::string msg, int duration);
 
   bool mouseHeld = false;
   SDL_Cursor *arrowCursor, *handCursor;

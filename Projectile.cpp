@@ -6,7 +6,7 @@ Projectile::Projectile(int startX, int startY, float angle, float speed) {
   posX = static_cast<float>(startX);
   posY = static_cast<float>(startY);
 
-  rect = {startX - 2, startY - 2, 20, 8};
+  rect = {startX - 2, startY - 2, 24, 9};
 
   // velocity components
   dx = cos(angle) * speed;
@@ -15,7 +15,7 @@ Projectile::Projectile(int startX, int startY, float angle, float speed) {
   // gravity (pixels per frame^2)
   gravity = 0.37f; // pixels per frame^2
 
-  drag = 1.019f; // multiply dx and dy each frame
+  drag = 1.000f; // multiply dx and dy each frame
 }
 
 // man i hate myself, idk any physics wHY
